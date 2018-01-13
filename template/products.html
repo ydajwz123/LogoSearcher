@@ -1,0 +1,369 @@
+$def with (result,key)
+<html>
+<head>
+<title>Products</title>
+	<script type="text/javascript" src="/static/js/js/jquery.min.js"></script>
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/static/js/js/jquery.min.js"></script>
+<link href="/static/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="/static/mui.min.js"></script>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Fashion Mania Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- start menu -->
+<link href="/static/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="/static/js/memenu.js"></script>
+<script src="/static/js/simpleCart.min.js"> </script>
+	<script type="text/javascript">
+        function goToImgRes() {
+            location.replace("/i?keywords=${key}")
+        }
+
+        function setShadow(isOnFocus) {
+            var inArea = document.getElementById("sb")
+            if (isOnFocus) {
+                inArea.style.borderColor = "#000000"
+                inArea.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)"
+            }
+            else {
+                inArea.style.borderColor = "#FFFFFF"
+                inArea.style.boxShadow = "none"
+            }
+
+        }
+</script>
+	<style type="text/css">
+        h3.r{display:block;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap}
+        body {
+            font-family: "Roboto", "Open Sans", Arial;
+        }
+
+        div.input-area {
+            margin-top: 30px;
+            margin-left: 10px;
+            margin-right: 350px;
+        }
+
+        div.content-area {
+            margin-left: 10px;
+            margin-right: 600px;
+        }
+        button.mui-btn {
+            background-color: #F5F5F5;
+        }
+
+        div.input-area div.mui-textfield:hover {
+            -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            /*点击input 外阴影*/
+            -webkit-transition: ease-in-out 0.2s;
+            -moz-transition: ease-in-out 0.2s;
+        }
+
+
+        input.key-input {
+            padding-left: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+	<style type="text/css">
+        h3.r{display:block;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap}
+        body {
+            font-family: "Roboto", "Open Sans", Arial;
+        }
+
+        div.input-area {
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 350px;
+        }
+
+        div.content-area {
+            margin-left: 10px;
+            margin-right: 600px;
+        }
+        button.mui-btn {
+            border-radius: 10px;
+    		background: #E6E6FA;
+    		padding: 1px10px2px10px;
+    		width: 110px;
+    		height: 30px;
+        }
+
+        div.input-area div.mui-textfield:hover {
+            -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            /*点击input 外阴影*/
+            -webkit-transition: ease-in-out 0.2s;
+            -moz-transition: ease-in-out 0.2s;
+        }
+
+
+        input.key-input {
+            padding-left: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+<style>
+html {
+  box-sizing: border-box;
+}
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(255,255,255,255);
+  font-size: 2rem;
+  min-height: 100%;
+  height: 100vh;
+}
+.Quick-navigation {
+  position: fixed;
+  z-index: 1;
+  margin: 0;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.Quick-navigation-item {
+  color: rgba(0,0,0,0.4);
+  text-decoration: none;
+  font-size: 1.3em;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  padding: 0.5em;
+  display: block;
+}
+.Quick-navigation-item:hover,
+.Quick-navigation-item.current {
+  color: #fff;
+}
+.Scroll-progress-indicator {
+  will-change: opacity, transform;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  left: -10px;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  opacity: 0;
+  padding: 2em;
+  -webkit-transform: translateX(200%) translateY(-50%);
+          transform: translateX(200%) translateY(-50%);
+  background-color: rgba(0,0,0,0.1);
+}
+.Scroll-progress-indicator.visible {
+  -webkit-transform: translateX(-100%) translateY(-50%);
+          transform: translateX(-100%) translateY(-50%);
+  opacity: 1;
+}
+#A {
+  background-color: #ffffff;
+}
+#B {
+  background-color: #ffffff;
+  height: 600px;
+}
+#C {
+  background-color: #ffffff;
+}
+#D {
+  background-color: #ffffff;
+  height: 200px;
+}
+#E {
+  background-color: #ffffff;
+}
+.Scroll-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1.5rem;
+  padding: 0.5em;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  outline: none;
+}
+.Scroll-to-top.visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.Scroll-to-top:hover {
+  color: rgba(255,255,255,0.9);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <a name="top">
+	<div class="header-top">
+		<div class="container">
+			<div class="col-md-4 logo">
+				<a href="/"><img src="/static/images/logo.png" alt=""></a>
+
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		</div>
+	</a>
+    <a name="category">
+		<div class="container">
+            <div class="head-top">
+                <div class="col-md-8 h_menu4">
+                    <ul class="memenu skyblue">
+                        <li class=" grid"><a  href="/">Home</a></li>
+				        <li><a class="color6" href="http://www.baidu.com">Contact</a></li>
+                        </ul>
+			</div>
+				<form class="mui-form--inline" action="/res" method="GET">
+					<div class="input-area">
+						<span style="font-size: 25; padding-right: 30px">Logo Search</span>
+						<div class="mui-textfield" id="sb">
+                <input class="key-input" type="text" name="keywords" max="30" min="1"onfocus="setShadow(true)" onblur="setShadow(false)" value="$(key)">
+            </div>
+						<button class="mui-btn" style="padding-right: 30px">Search</button>
+					</div>
+    			</form>
+		<div class="clearfix"> </div>
+                <link href="/static/css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+                    <script src="/static/js/jquery.magnific-popup.js" type="text/javascript"></script>
+                <div id="small-dialog" class="mfp-hide">
+				<div class="search-top">
+						<div class="login">
+							<input type="submit" value="">
+							<input type="text" value="Type something..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+						</div>
+						<p>	Shopping</p>
+					</div>
+				</div>
+		</div>
+        </div>
+    </a>
+</div>
+
+<div class="products">
+    $ amount = len(result)
+    $for i in range(amount):
+    <a name="$result[i][0][0]$result[i][0][1]">
+    <div class="container">
+		<h1>$result[i][0][1]</h1>
+        <img class="img-responsive" src=$result[i][3]>
+        <a href=$result[i][1]> <h1>$result[i][0][0]</h1> </a>
+        $result[i][2]
+		<hr style="height:5px;border:none;border-top:5px groove skyblue;" />
+		<br />
+		<div class="col-md-9">
+            $for j in range((len(result[i])-4)/3)
+            <div class="content-top1">
+                $for k in range(3)
+                <div class="col-md-4 col-md3">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="$result[i][4+j*3+k][0]">
+							<img class="img-responsive" src=$result[i][4+j*3+k][0] onError="this.src='/static/images/error.png';"alt="" />
+						</a>
+						<h3><a href="single.html">$result[i][4+j*3+k][1]</a></h3>
+						<div class="price">
+								<h5 class="item_price">$result[i][4+j*3+k][2]</h5>
+								<a href="https://s.taobao.com/search?q=$result[i][4+j*3+k][1]" class="item_add" >TB</a>
+								<a href="https://search.jd.com/Search?keyword=$result[i][4+j*3+k][1]&enc=utf-8" class="item_add" >JD</a>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+	<div class="clearfix"> </div>
+    <hr style="height:5px;border:none;border-top:10px groove skyblue;" />
+    </a>
+</div>
+
+<div class="footer">
+    <a name="end">
+	<div class="container">
+		<div class="footer-top">
+			<div class="col-md-4 top-footer1">
+				<h2>End</h2>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+    </a>
+    <a name="information">
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="col-md-3 footer-bottom-cate">
+					<h6>Some Logos</h6>
+					<ul>
+						<li><a href="/res?keywords=Sumsang">Sumsang</a></li>
+						<li><a href="/res?keywords=Acer">Acer</a></li>
+						<li><a href="/res?keywords=Apple">Apple</a></li>
+						<li><a href="/res?keywords=AKG">AKG</a></li>
+						<li><a href="/res?keywords=B&O">B&O</a></li>
+
+					</ul>
+				</div>
+			<div class="col-md-3 footer-bottom-cate">
+					<h6>Famous Producer</h6>
+					<ul>
+						<li><a href="#">ydajwz</a></li>
+						<li><a href="#">Lsch</a></li>
+						<li><a href="#">Luoyu</a></li>
+						<li><a href="#">CF</a></li>
+					</ul>
+				</div>
+    </div>
+</div>
+
+<nav class="Quick-navigation">
+  	<a href="#top" class="Quick-navigation-item"><h3>Search</h3></a>
+  	<a href="/" class="Quick-navigation-item"><h3>Home</h3></a>
+		$for i in range(len(result))
+		<a href="#$result[i][0][0]$result[i][0][1]" class="Quick-navigation-item"><h3>$result[i][0][0]$result[i][0][1]</h3></a>
+	<a href="#end" class="Quick-navigation-item"><h3>End</h3></a>
+	<a href="#information" class="Quick-navigation-item"><h3>Information</h3></a>
+  	<div class="Scroll-progress-indicator"></div>
+</nav>
+
+
+</body>
+</html>

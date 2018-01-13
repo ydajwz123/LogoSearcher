@@ -1,0 +1,76 @@
+$def with(form)
+<head>
+    <meta charset="utf-8">
+    <title>Search Logo Engine</title>
+    <!-- load custom font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css" />
+    <!-- load MUI -->
+    <link href="./addition/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="./addition/mui.min.js"></script>
+    <script type="text/javascript">
+        function goToTXT() {
+            location.replace("/")
+        }
+
+        function setShadow(isOnFocus) {
+            var inArea = document.getElementById("sb")
+            if (isOnFocus) {
+                inArea.style.borderColor = "#000000"
+                inArea.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)"
+            }
+            else {
+                inArea.style.borderColor = "#FFFFFF"
+                inArea.style.boxShadow = "none"
+            }
+
+        }
+    </script>
+    <style type="text/css">
+
+        body {
+            font-family: "Roboto", "Open Sans", Arial;
+        }
+
+        div.input-area {
+            margin-top: 30px;
+            margin-left: 350px;
+            margin-right: 350px;
+        }
+
+        button.mui-btn {
+            background-color: #F5F5F5;
+        }
+
+        div.input-area div.mui-textfield:hover {
+            -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            /*点击input 外阴影*/
+            -webkit-transition: ease-in-out 0.2s;
+            -moz-transition: ease-in-out 0.2s;
+        }
+
+
+        input.key-input {
+            padding-left: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content-wrapper" class="mui--text-center" style="margin-top: 200px">
+        <h1>Search Logo Engine</h1>
+        <br>
+        <br>
+        <button class="mui-btn" onclick="goToTXT()" >Text</button>
+        <button class="mui-btn" disabled="True">Image</button>
+
+        <form class="mui-form" action="/i" method="GET">
+            <div class="input-area">
+                <div class="mui-textfield" id="sb">
+                    <input class="key-input" type="text" name="keywords" max="30" min="1"onfocus="setShadow(true)" onblur="setShadow(false)">
+                </div>
+                <button class="mui-btn">Search</button>
+            </div>
+        </form>
+    </div>
+</body>

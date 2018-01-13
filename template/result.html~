@@ -1,0 +1,98 @@
+$def with (result, key)
+
+<head>
+    <meta charset="utf-8">
+    <title>Search Engine Text Results</title>
+    <!-- load custom font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css" />
+    <!-- load MUI -->
+    <link href="/static/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="/static/mui.min.js"></script>
+
+    <script type="text/javascript">
+        function goToImgRes() {
+            location.replace("/i?keywords=${key}")
+        }
+
+        function setShadow(isOnFocus) {
+            var inArea = document.getElementById("sb")
+            if (isOnFocus) {
+                inArea.style.borderColor = "#000000"
+                inArea.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)"
+            }
+            else {
+                inArea.style.borderColor = "#FFFFFF"
+                inArea.style.boxShadow = "none"
+            }
+
+        }
+    </script>
+    <style type="text/css">
+        h3.r{display:block;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap}
+        body {
+            font-family: "Roboto", "Open Sans", Arial;
+        }
+
+        div.input-area {
+            margin-top: 30px;
+            margin-left: 10px;
+            margin-right: 350px;
+        }
+
+        div.content-area {
+            margin-left: 10px;
+            margin-right: 600px;
+        }
+        button.mui-btn {
+            background-color: #F5F5F5;
+        }
+
+        div.input-area div.mui-textfield:hover {
+            -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            /*点击input 外阴影*/
+            -webkit-transition: ease-in-out 0.2s;
+            -moz-transition: ease-in-out 0.2s;
+        }
+
+
+        input.key-input {
+            padding-left: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+    <style>
+.divcss5{ height: 50px;width:200px;word-wrap:break-word}
+</style>
+</head>
+<body>
+    <form class="mui-form--inline" action="/res" method="GET">
+        <div class="input-area">
+            <span style="font-size: 25; padding-right: 30px">SSSE</span>
+            <div class="mui-textfield" id="sb">
+                <input class="key-input" type="text" name="keywords" max="30" min="1"onfocus="setShadow(true)" onblur="setShadow(false)" value="$(key)">
+            </div>
+            <button class="mui-btn" style="padding-right: 30px">submit</button>
+        </div>
+    </form>
+    <button class="mui-btn" disabled="True" style="margin-left: 10px">Text</button>
+    <button class="mui-btn" onclick="goToImgRes()">Image</button>
+    $ amount = len(result)
+
+    <br />
+    <div class="content-area">
+        ${"%s total matching documents." % amount}
+        $for i in range(amount):
+        <h3 class="r">
+            <a href=$result[i][1]>
+                <font size=6>$result[i][0][1]</font> <br /><br />
+                <font size=5>$result[i][0][0]</font> </a>
+            $result[i][2]
+            <img src=$result[i][3] height="200" width="200" alt=$result[i][1] border=10><br /><br />
+            $for j in range(len(result[i])-4):
+            <img src=$result[i][4+j][0]  height="100" width="100" alt=$result[i][4+j][0] border=10><br /><br />
+            <font size="4">$result[i][4+j][1]</font>
+            <font size="4">$result[i][4+j][2]</font>
+        </h3>
+    </div>
+</body>
